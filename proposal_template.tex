@@ -57,8 +57,43 @@ London}}
 
 \subsection*{Significance of  }
 
-The over-arching goal of our project is create a workflow for data analysis and interpretation
-needs of the neutron scattering community through streamlined atomistic modeling. Neutron scattering experiments require users to model and interpret data at the atomic/molecular level. With numerous software applications and a large array of different file formats with each, scientists tend to use a limited (and sometimes dated) subset of software tools to tackle data analysis from neutron experiments. This creates a barrier to use other methods or atomistic modeling softwares in their research that could help in bridging the gap between experiment and theory. 
+The over-arching goal of our project is create a streamlined workflow
+for experimental data analysis and interpretation
+needs of the neutron scattering community using atomistic modeling and
+simulation. Neutron scattering experiments require users to model and
+interpret data at the atomic/molecular level. With numerous software
+applications and a large array of different file formats with each,
+scientists tend to use a limited (and sometimes dated) subset of
+software tools to tackle data analysis from neutron experiments. This
+creates a barrier to use other methods or cutting-edge atomistic
+modeling softwares in their research that could help in bridging the gap
+between experiment and theory. 
+
+We are currently developing a modeling and analysis workbench called
+Integrated Computational Environment-Modeling \& Analysis for Neutrons,
+or ICE-MAN. We hope to create a seamless transition from both different
+types of neutron scattering experimental data and computer modeling and
+simulation techniques to tackle multi-modal data
+analysis. An example of a workflow would be the study of a disordered
+material. First, neutron scattering experiments could yeild the average
+structure of the material, providing Bragg diffraction data, and
+the local structure via total scattering, providing the pair
+distribution function.  Molecular dynamics (MD) simulations can provide
+a trajectory for an atomistic model of the material in time giving an
+ensemble of possible atomic configurations to compare to experiment.
+These sampled
+configurations from the trajectory could be converted and refined with
+reverse Monte Carlo modeling (RMC) to determine which atomic configurations
+produce the best fit to both the Bragg diffraction pattern and pair
+distribution functions produced from the neutron scattering experiments.
+The MD trajectories could also then feed into software to calculate the
+inelastic neutron scattering spectrum of the system. This data could
+feed back into the RMC modeling as a constraint. At present this process
+would be exceedingly time consuming, involve expertise in at multiple
+techniques, and most likely present a barrier that would
+seldom be overcome by general users. 
+
+We are requesting XSEDE's HPC resources to carry out this workflow on projects that are already ready to be fed into the pipeline and also for potential projects for the general neutron scattering community, specifically Users of the Spallation Neutron Source instruments.
 
 \subsection*{Proposed Research}
 
@@ -67,6 +102,12 @@ Propose the research projects that we can answer.  \\
   2) Bianca's project \\
   3) Sankar's project \\
   4) Ben \& Colin's project \\
+
+\subsubsection*{Project 1: Investigate structural modifications of irradiated SiO2 for nuclear materials}
+
+The first project would be the study of the local structure changes in amorphous silica (SiO2) due to radiation damage. Previous studies have looked at the fine structure of ion tracks (narrow trails of permanent damage along penetrating heavy ion pathways) in thin film amorphous silica using small angle x-ray scattering (SAXS) measurements combine with non-equilibrium MD modeling and simulation techniques. These studies revealed that these ion tracks formed a shell around the path of penetration through the sample which consisted of a core lower in density and a shell high in density. The non-equlibrium MD calculations were carried out using an ~30k atom system where the ion track was produced by instantaneous deposition of kinetic energy to the atoms in the simulation cell. More recently, simulation sizes of ~600k atoms have also been carried out to compare to SAXS measurements as well. We intend to carry out similar simulations of comparable size that can be used to elucidate the structural changes observed in neutron scattering experiments of the average and local structure of these polymorphs of silica. Atomistic configurations from the end of this trajectory can then be fed into the RMC modeling to optimize the structure against the experimental data. The results of this study can help understand the fundamental degradation of silica materials exposed radiation damage and also to future work to manipulate nanoclusters within solid silica materials. 
+
+
 
 
 \section*{Computational Methodology (applications/codes)}
