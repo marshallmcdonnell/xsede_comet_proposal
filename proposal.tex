@@ -1,0 +1,116 @@
+\documentclass{proposalnsf}
+\usepackage{epsfig}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+% NSF proposal generation template style file.
+% based on latex stylefiles  written by Stefan Llewellyn Smith and
+% Sarah Gille, with contributions from other collaborators.
+
+\newcommand{\jas}{{\it J. Atmos. Sci.}}
+\newcommand{\jpo}{{\it J. Phys. Oceanogr.}}
+\newcommand{\JPO}{{\it J. Phys. Oceanogr.}}
+\newcommand{\jfm}{{\it J. Fluid Mech.}}
+\newcommand{\jgr}{{\it J. Geophys. Res.}}
+\newcommand{\JGR}{{\it J. Geophys. Res.}}
+\newcommand{\jmr}{{\it J. Mar. Res.}}
+\newcommand{\arfm}{{\it Ann. Rev. Fluid Mech.}}
+\newcommand{\dsr}{{\it Deep-Sea Res.}}
+\newcommand{\dao}{{\it Dyn. Atmos. Oceans}}
+\newcommand{\jam}{{\it Journal of Applied Meteorology}}
+\newcommand{\phfl}{{\it Phys. Fluids}}
+\newcommand{\phfla}{{\it Phys. Fluids A}}
+\newcommand{\PhilTrans}{{\it Philosophical Transactions of the Royal Society, 
+London}}
+\newcommand{\gafd}{{\it Geophys. Astrophys. Fluid Dyn.}}
+\newcommand{\gfd}{{\it Geophys. Fluid Dyn.}}
+\newcommand{\PCE}   {{\it Physics and Chemistry of the Earth}}
+\newcommand{\PRL}   {{\it Physical Review Letters}}
+
+\newcommand{\ProgOc}{{\it Prog. Oceanography}}
+\newcommand{\WHOITR}{Woods Hole Oceanographic Institution Technical Report, WHOI-}
+\newcommand{\degrees}{$\!\!$\char23$\!$}
+%%% old lines below defined some mathematical fonts; these no longer seem necessary
+%\DeclareFontFamily{OT1}{psyr}{}
+%\DeclareFontShape{OT1}{psyr}{m}{n}{<-> psyr}{}
+%\def\times{{\fontfamily{psyr}\selectfont\char180}}
+
+
+\renewcommand{\refname}{\centerline{References cited}}
+
+% this handles hanging indents for publications
+\def\rrr#1\\{\par
+\medskip\hbox{\vbox{\parindent=2em\hsize=6.12in
+\hangindent=4em\hangafter=1#1}}}
+
+\def\baselinestretch{1}
+
+\begin{document}
+
+
+\noindent{\Large{\bf Computational Modeling to Aid in Analysis and Interpretation of Multi-Modal Neutron Experiments }}\\*[3mm]
+
+\pagenumbering{arabic}
+\renewcommand{\thepage} {\arabic{page}}
+
+
+
+\section*{Research Objectives}
+\input{research_objectives/part1/significance}
+
+\subsection*{Proposed Research}
+\input{research_objectives/part2/project_lang_sio2}
+\input{research_objectives/part2/project_haberl_si}
+\input{research_objectives/part2/project_deLaune_fesb2o4}
+
+
+
+Propose the research projects that we can answer.  \\
+  3) Sankar's project \\
+
+
+
+
+
+\section*{Computational Methodology (applications/codes)}
+\subsection*{LAMMPS}
+\input{computational_methodology/lammps}
+
+\section*{Computational Research Plan}
+
+\begin{table}[h!]
+  \centering
+  \caption{Summary of requested service units for projects}
+  \begin{tabular}{cccccc}
+  	\toprule
+  	Table & Project & Machine & Program & Service-Units & Storage (GB)\\
+  	\midrule
+  	1 & Irradiated SiO2   & Comet/Oasis & LAMMPS & 300,000 & 500 \\
+  	2 & High-pressure a-Ge/a-Si & Comet/Oasis & LAMMPS & 300,000 & 500\\
+  	3 & Oxygen in FeSb2O4 & Comet/Oasis & QE & 100,000 & 500\\
+  	4 & RMC modeling   & OSG & RMCProfile & 25,000 & 100 \\
+  	\bottomrule
+  \end{tabular}
+\end{table}
+
+\section*{Justification for Service Units (SUs) Requested}
+
+\section*{Additional Comments}
+
+
+
+
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {E--\arabic{page}}
+
+\bibliography{draft}
+\bibliographystyle{jponew}
+
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\thepage} {G--\arabic{page}}
+\noindent{\Large \bf BUDGET JUSTIFICATION}
+
+\end{document}
