@@ -2,6 +2,9 @@
 \usepackage{epsfig}
 \usepackage{hyperref}
 \usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\restylefloat{table}
 
 % NSF proposal generation template style file.
 % based on latex stylefiles  written by Stefan Llewellyn Smith and
@@ -78,9 +81,11 @@ Propose the research projects that we can answer.  \\
 
 \section*{Computational Research Plan}
 
-\begin{table}[h!]
-  \centering
+This is the plan
+
+\begin{table}[H]
   \caption{Summary of requested service units for projects}
+  \resizebox{\textwidth}{!}{%
   \begin{tabular}{cccccc}
   	\toprule
   	Table & Project & Machine & Program & Service-Units & Storage (GB)\\
@@ -91,26 +96,18 @@ Propose the research projects that we can answer.  \\
   	4 & RMC modeling   & OSG & RMCProfile & 25,000 & 100 \\
   	\bottomrule
   \end{tabular}
+  }
 \end{table}
+
+Like it?
 
 \section*{Justification for Service Units (SUs) Requested}
 
 \section*{Additional Comments}
 
 
-
-
-
-\newpage
-\pagenumbering{arabic}
-\renewcommand{\thepage} {E--\arabic{page}}
-
 \bibliography{draft}
 \bibliographystyle{jponew}
 
-\newpage
-\pagenumbering{arabic}
-\renewcommand{\thepage} {G--\arabic{page}}
-\noindent{\Large \bf BUDGET JUSTIFICATION}
 
 \end{document}
