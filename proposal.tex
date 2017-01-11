@@ -105,9 +105,33 @@ The Open Science Grid would be an optimal resource to use for launching multple 
 
 \subsection*{Performance and Scaling}
 
+A host of programs will be used 
+
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{graphics/strong_tersoff.png}
+    \includegraphics[width=0.48\textwidth]{graphics/strong_bks.png}
+  \end{center}
+  \caption{Strong Scaling}
+\end{figure}
+
 
 \section*{Computational Research Plan}
-We propose to complete the following work on Comet 
+We propose to complete the following work on on the XSEDE HPC and HTC resources :
+
+\begin{description}
+
+
+\item[Amorphous Ge/Si via High-Pressure] a-Ge and a-Si will be modeled using the in-house structure relaxation program based on the WWW method. From these initial structures, varying high-pressure and indentation MD simulations can be carried out to match experimental preparation methods. Again, using RMC modeling, we can further optimize these structures to compare and fit against neutron scattering experiments. These optimized structures can be fed back into the MD simulations to overcome barriers not accessible in the temporal limits of MD or for virtual experiments to help direct future material processing methods. ICE-MAN will be developed to reduce the barrier in the forward and backward direction of data between the MD and RMC modeling.
+
+\item[Oxygen Insertion in 1-D Cation Channel Materials]  RMC modeling will be used to clarify atomic structures of schafarzikite-like, 1-D cation channel materials before and after oxidation based on availabl eneutron scattering data. The final structures can then be linked via electronic strucutre nudge elastic band calculations to determine minimum energy pathways for oxygen insertion into the lattice structure. ICE-MAN will again handle launching and data transfwer workflow between the RMC and quantum modeling calculations.
+
+\item[Irradiated Amorphous Silica by Swift Heavy Ions - Part 1] Swift heavy ion cascade simulations of amorphous silica will be carried out to produce atomistic configurations that can be directly compared and optimized to neutron scattering experiments via RMC modeling. This material will be first of many irradiated nuclear waste glass materials we will study via neutron scattering experiments in the upcoming year. ICE-MAN will be developed and optimized for the automated workflow between these modeling techniques: non-equilibrium MD simulations to RMC fitting of experimental data.
+
+\item[Irradiated Amorphous Silica by Swift Heavy Ions - Part 2] The swift heavy ion cascade simulations will also be simulated using the incorporation of realistic modeling of the electron-phonon coupling via two-temperature modeling with electronic temperature dependence on the electronic specific heat. This will require electronic structure calculations to determine the electronic specific heat with temperature curves, which will be an input into the SHI cascade simulations, which will give trajectories that are inputs into the RMC modeling and fitting to neutron experiments. Thus, this will be culminating project for ICE-MAN to prove success in its mission: Support the data analysis and interpretation needs of the neutron scattering community through atomistic modeling and simulation. \
+
+\end{description} 
 
 
 
@@ -131,7 +155,6 @@ Table \ref{SU_table} summarizes the jusitification for the requested resources t
   }
 \end{table}
 
-Like it?
 
 \section*{Additional Comments}
 Currently, there is a shared comuter cluster available for computations for the group, the Virtual Experiments  in Spectroscopy  with neutrons (VirtuES) cluster. This machine was made available in 2015 as a funded Laboratory Directed Research and Development project for the VISION neurton vibraional spectrometer at the SNS. The machine consists of 2500+ cores with nodes consisting of two 16-core Intel Xeon E5-2698 v3 running at 2.30GHz. VirtuES is dedicated to the VISION beamline, the first SNS instrument that has computer modeling as integral part of the neutron data analysis and interpretation of the spectra. This cluster mainly used for running DFT calculations to help in data analysis and interpretation of User's neutron data. Our current proposed projects and ICE-MAN development comes secondary to Users needs.
