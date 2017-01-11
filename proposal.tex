@@ -3,6 +3,7 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{float}
 \restylefloat{table}
 
@@ -79,12 +80,43 @@ Propose the research projects that we can answer.  \\
 \subsection*{LAMMPS}
 \input{computational_methodology/lammps}
 
-\section*{Computational Research Plan}
+\subsection*{DFT Codes}
+\input{computational_methodology/dft_codes}
 
-This is the plan
+\subsection*{RMCProfile}
+\input{computational_methodology/rmcprofile}
+
+\subsection*{Comet}
+Comet is the ideal resource for our research for the following reasons:
+
+\begin{enumerate}
+\item It provides a heterogenous research platform that is capabable of providing domain-specific, ideal architectures. The compute nodes are ideal for our large-scale atomistic simulations and the large memory nodes are ideal for our quatum calculation work. The GPU nodes are available to tackle very large problem sizes that make use of massive level of parallelization efficiently
+
+\item We are targeting the Oak Ridge National Laboratory Leadership Computing Facility resources (i.e. Titan) to launch ICE-MAN. However, due to all nodes containing a GPU on Titan, we can only use the machine to its full potential for a subset of our project. Using Comet as the first target machine allows us access to the resources we will eventually use, broaden the scope of machines that ICE-MAN can utilize, and be accessible to a larger part of the research community.
+
+\item Members of the team already have experience using Comet and have had publications as a direct result of the allocations awarded on the machine.
+
+\item The Data Oasis Lustre parallel file system ensures plenty of scalable storage available for the jobs run on the machine.
+
+\end{enumerate}
+
+\subsection*{Open Science Grid}
+The Open Science Grid would be an optimal resource to use for launching multple arrays of reverse Monte Carlo jobs in a high throughput manner for large spanning of the phase space. The ICE-MAN project could take advantage on its already-underlying remote job launching capabilities to transfer work to the appropriate computational resource.
+
+\subsection*{Performance and Scaling}
+
+
+\section*{Computational Research Plan}
+We propose to complete the following work on Comet 
+
+
+
+\section*{Justification for Service Units (SUs) Requested}
+
+Table \ref{SU_table} summarizes the jusitification for the requested resources to begin our project. The resources are 
 
 \begin{table}[H]
-  \caption{Summary of requested service units for projects}
+  \caption{Summary of requested service units for projects}\label{SU_table}
   \resizebox{\textwidth}{!}{%
   \begin{tabular}{cccccc}
   	\toprule
@@ -101,9 +133,10 @@ This is the plan
 
 Like it?
 
-\section*{Justification for Service Units (SUs) Requested}
-
 \section*{Additional Comments}
+Currently, there is a shared comuter cluster available for computations for the group, the Virtual Experiments  in Spectroscopy  with neutrons (VirtuES) cluster. This machine was made available in 2015 as a funded Laboratory Directed Research and Development project for the VISION neurton vibraional spectrometer at the SNS. The machine consists of 2500+ cores with nodes consisting of two 16-core Intel Xeon E5-2698 v3 running at 2.30GHz. VirtuES is dedicated to the VISION beamline, the first SNS instrument that has computer modeling as integral part of the neutron data analysis and interpretation of the spectra. This cluster mainly used for running DFT calculations to help in data analysis and interpretation of User's neutron data. Our current proposed projects and ICE-MAN development comes secondary to Users needs.
+
+There is also an open-research cluster, called Analysis, available at the SNS for Users to analyze and visualize their data from neutron experiments. This cluster is mainly for accessing and reducing User's data and not suited for HPC applications. MTM has currently just finished using a initial startup allocation for 100,000 total SUs from a previous project on the two XSEDE HPC resources at the San Diegoe Supercomputer Center: Comet and Gordon (50,000 SUs each)
 
 
 \bibliography{draft}
