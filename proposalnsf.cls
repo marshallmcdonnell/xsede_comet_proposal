@@ -5,7 +5,7 @@
 \LoadClass[12pt]{article}
 \RequirePackage{calc}
 %\RequirePackage{pdffig}
-\RequirePackage{natbib}
+%\RequirePackage{natbib}
 \RequirePackage[american]{babel}
 %\RequirePackage{hyperref}
 \RequirePackage{mathpazo}

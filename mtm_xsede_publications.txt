@@ -1,0 +1,13 @@
+Publications using XSEDE resources and in acknowledged
+
+[1]
+M. T. McDonnell, H. Xu, and D. J. Keffer, “Ab Initio Molecular Dynamics Simulations of an Excess Proton in a Triethylene Glycol–Water Solution: Solvation Structure, Mechanism, and Kinetics,” vol. 23, pp. 5223–5242, 2016.
+[2]
+M. T. McDonnell, D. A. Greeley, K. M. Kit, and D. J. Keffer, “Molecular Dynamics Simulations of Hydration Effects on Solvation, Diffusivity, and Permeability in Chitosan/Chitin Films,” vol. 34, pp. 8997–9010, 2016.
+
+Publications that used a previous XSEDE resource (Kraken)
+
+[3]
+M. T. McDonnell and D. J. Keffer, “Intrinsic relationships between proton conductivity and nanopore size and functionalization,” pp. 17–24, 2013.
+[4]
+S. Deng, M. K. Hassan, A. Nalawade, K. A. Perry, K. L. More, K. A. Mauritz, M. T. McDonnell, D. J. Keffer, and J. W. Mays, “High temperature proton exchange membranes with enhanced proton conductivities at low humidity and high temperature based on polymer blends and block copolymers of poly(1,3-cyclohexadiene) and poly(ethylene glycol),” pp. 208–217, 2015.

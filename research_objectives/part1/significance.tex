@@ -1,39 +1,31 @@
-\subsection*{Significance of  }
-
-The over-arching goal of our project is create a streamlined workflow
+The over-arching goal of our project is to create a streamlined workflow
 for experimental data analysis and interpretation
 needs of the neutron scattering community using atomistic modeling and
 simulation. Neutron scattering experiments require users to model and
-interpret data at the atomic/molecular level. With numerous software
+interpret data at the atomic level. With numerous software
 applications and a large array of different file formats with each,
 scientists tend to use a limited (and sometimes dated) subset of
 software tools to tackle data analysis from neutron experiments. This
-creates a barrier to use other methods or cutting-edge atomistic
-modeling softwares in their research that could help in bridging the gap
-between experiment and theory.
+creates a barrier in their research between experimental and theoretical techniques.
 
-We are currently developing a modeling and analysis workbench called
+We are currently developing a modeling and analysis workbench called the 
 Integrated Computational Environment-Modeling \& Analysis for Neutrons,
-or ICE-MAN. We hope to create a seamless transition from both different
+or ICE-MAN. This is an extension of the Eclipse ICE project \cite{ICEwebsite}. We hope to create a seamless transition from both different
 types of neutron scattering experimental data and computer modeling and
 simulation techniques to tackle multi-modal data
 analysis. An example of a workflow would be the study of a disordered
-material. First, neutron scattering experiments could yeild the average
-structure of the material, providing Bragg diffraction data, and
-the local structure via total scattering, providing the pair
-distribution function.  Molecular dynamics (MD) simulations can provide
-a trajectory for an atomistic model of the material in time giving an
+material. First, neutron scattering experiments could yield the average
+structure of the material (diffraction data) and
+the local structure via total scattering (the pair
+distribution function, or PDF).  Molecular dynamics (MD) simulations can provide
+a trajectory for an atomistic model  giving an
 ensemble of possible atomic configurations to compare to experiment.
-These sampled
-configurations from the trajectory could be converted and refined with
-reverse Monte Carlo modeling (RMC) to determine which atomic configurations
-produce the best fit to both the Bragg diffraction pattern and pair
-distribution functions produced from the neutron scattering experiments.
-The MD trajectories could also then feed into software to calculate the
+Sampled configurations from the trajectory could be used as inputs into reverse Monte Carlo modeling (RMC) to optimize the structures against the the diffraction and PDF data produced from the neutron scattering experiments.
+The MD trajectories could also then be used to calculate the
 inelastic neutron scattering spectrum of the system. This data could
 feed back into the RMC modeling as a constraint. At present this process
-would be exceedingly time consuming, involve expertise in at multiple
+would be exceedingly time consuming, involve expertise in multiple
 techniques, and most likely present a barrier that would
 seldom be overcome by general users.
 
-We are requesting XSEDE's HPC resources to carry out this workflow on projects that are already ready to be fed into the pipeline and also for potential projects for the general neutron scattering community, specifically Users of the Spallation Neutron Source instruments.
+We are requesting XSEDE's HPC resources to carry out this workflow on the outlined projects that already have a need for computational approaches to solve complex structural data analysis and also multiple potential projects for the general neutron scattering community, specifically Users of the Spallation Neutron Source (SNS) instruments at Oak Ridge National Lab. We propose three projects that have already been studied via neutron scattering experiments and have a need for atomistic modeling to aid in the data analysis process. These include irradiated amorphous silica for nuclear radiation damage on materials, high-pressure amorphous silica for cheaper manufacturing of electronics, and oxygen insertion into shafarzikite-like structures for oxygen storage materials.

@@ -1,10 +1,13 @@
 \documentclass{proposalnsf}
 \usepackage{epsfig}
+
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{float}
+\usepackage[numbers,sort&compress,super]{natbib}
+\usepackage[usenames, dvipsnames]{color}
 \restylefloat{table}
 
 % NSF proposal generation template style file.
@@ -52,12 +55,10 @@ London}}
 \begin{document}
 
 
-\noindent{\Large{\bf Computational Modeling to Aid in Analysis and Interpretation of Multi-Modal Neutron Experiments }}\\*[3mm]
+\noindent{\Large{\bf Computational Modeling to Aid in Data Analysis and Interpretation of Neutron Experiments: From Irradiated Silica to Oxidization of Schafarzikite Structures  }}\\*[3mm]
 
 \pagenumbering{arabic}
 \renewcommand{\thepage} {\arabic{page}}
-
-
 
 \section*{Research Objectives}
 \input{research_objectives/part1/significance}
@@ -68,29 +69,29 @@ London}}
 \input{research_objectives/part2/project_deLaune_fesb2o4}
 
 
-
-Propose the research projects that we can answer.  \\
-  3) Sankar's project \\
-
-
-
-
-
 \section*{Computational Methodology (applications/codes)}
 \subsection*{LAMMPS}
 \input{computational_methodology/lammps}
 
 \subsection*{DFT Codes}
+
 \input{computational_methodology/dft_codes}
 
 \subsection*{RMCProfile}
 \input{computational_methodology/rmcprofile}
 
+\subsection*{ICE-MAN}
+
+Developing ICE-MAN on XSEDE resources would open up the machines that the software is available on and diversify the architecture development. Users at neutron scattering facilities who already have access to XSEDE resources or collaborate with other research teams that do could have ICE-MAN as a common platform to bring together their atomistic modeling data with their neutron experiment data.
+
+\newpage
+
 \subsection*{Comet}
 Comet is the ideal resource for our research for the following reasons:
 
 \begin{enumerate}
-\item It provides a heterogenous research platform that is capabable of providing domain-specific, ideal architectures. The compute nodes are ideal for our large-scale atomistic simulations and the large memory nodes are ideal for our quatum calculation work. The GPU nodes are available to tackle very large problem sizes that make use of massive level of parallelization efficiently
+
+\item It provides a heterogeneous research platform that is capable of providing domain-specific, ideal architectures. The compute nodes are ideal for our large-scale atomistic simulations and the large memory nodes are ideal for our quantum calculation work. The GPU nodes are available to tackle very large problem sizes that make use of massive parallelization efficiently.
 
 \item We are targeting the Oak Ridge National Laboratory Leadership Computing Facility resources (i.e. Titan) to launch ICE-MAN. However, due to all nodes containing a GPU on Titan, we can only use the machine to its full potential for a subset of our project. Using Comet as the first target machine allows us access to the resources we will eventually use, broaden the scope of machines that ICE-MAN can utilize, and be accessible to a larger part of the research community.
 
@@ -101,35 +102,51 @@ Comet is the ideal resource for our research for the following reasons:
 \end{enumerate}
 
 \subsection*{Open Science Grid}
-The Open Science Grid would be an optimal resource to use for launching multple arrays of reverse Monte Carlo jobs in a high throughput manner for large spanning of the phase space. The ICE-MAN project could take advantage on its already-underlying remote job launching capabilities to transfer work to the appropriate computational resource.
+The Open Science Grid would be an optimal resource to use for launching multiple arrays of RMC jobs in a high throughput manner for large spanning of the phase space. The ICE-MAN project could take advantage on its already-underlying remote job launching capabilities to transfer work to the appropriate computational resource.
+
 
 \subsection*{Performance and Scaling}
+Classical/empirical potential MD simulations scale much better than their electronic structure counterparts due the parallel strategy being simpler and more straightforward. Thus, the larger jobs using the most amount of nodes in this project are the MD calculations. We focus below on the scaling and performance of the silica simulations using LAMMPS on Comet (CPU only simulations).
 
-A host of programs will be used 
+In Figures \ref{scaling_quartz} and \ref{scaling_twoTemp}, we show the benchmark calculations on Comet for both bulk quartz simulations and two-temperature cascade simulations, respectively. In these figures, we show the strong scaling (speedup and parallel efficiency for a fixed problem size), performance (MD steps per second) and weak scaling (fixed number of atoms per node) for each system. For the simulation setup, the system size consists of 648k atoms (Strong scaling: problem size, Weak scaling: atoms / node), we used a Tersoff empirical potential \cite{Tersoff1988, Kumagai2007}, and the simulations were for 100 MD steps with a 1 femtosecond timestep.
 
-
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.48\textwidth]{graphics/strong_tersoff.png}
-    \includegraphics[width=0.48\textwidth]{graphics/strong_bks.png}
-  \end{center}
-  \caption{Strong Scaling}
+ 
+  \begin{tabular}{cc}
+    \multicolumn{2}{c}{\includegraphics[width=0.35\textwidth]{graphics/comet_strong_quartz.png}} \\
+          \includegraphics[width=0.35\textwidth]{graphics/comet_perf_quartz.png} &
+    \includegraphics[width=0.35\textwidth]{graphics/comet_weak_quartz.png} \\
+  \end{tabular}
+  \caption{\textbf{Performance and Scaling of LAMMPS for Quartz Simulations.} Simulation consists of 640k atoms, Tersoff Potential, $\Delta t$ = 1 fs, for 100 MD timesteps.}\label{scaling_quartz}
+  
+    \end{center}
 \end{figure}
 
+\begin{figure}[H]
+  \begin{center}
+      \begin{tabular}{cc}
+    \multicolumn{2}{c}{\includegraphics[width=0.35\textwidth]{graphics/comet_strong_twoTemp.png}} \\
+    \includegraphics[width=0.3\textwidth]{graphics/comet_perf_twoTemp.png} &
+    \includegraphics[width=0.3\textwidth]{graphics/comet_weak_twoTemp.png} \\
+    \end{tabular}
+    
+  \caption{\textbf{Performance and Scaling of LAMMPS for Irradiated Quartz via Two-Temperature Modeling Simulations.} Simulation consists of 640k atoms, Tersoff Potential, $\Delta t$ = 1 fs, for 100 MD timesteps.}\label{scaling_twoTemp}
+  
+  \end{center}
+\end{figure}
 
 \section*{Computational Research Plan}
-We propose to complete the following work on on the XSEDE HPC and HTC resources :
+
 
 \begin{description}
+\item[Irradiated Amorphous Silica by Swift Heavy Ions] Swift heavy ion cascade simulations of amorphous silica will be carried out to produce atomistic configurations that can be directly compared and optimized to neutron scattering experiments via RMCProfile. This material will be first of many irradiated nuclear waste glass materials we will study via neutron scattering experiments in the upcoming year. ICE-MAN will be developed and optimized for the automated workflow between these modeling techniques: non-equilibrium MD simulations to RMC fitting of experimental data. Realistic modeling of the electron-phonon coupling via two-temperature modeling will also be explored. This will require electronic structure calculations to determine the temperature-dependent electronic specific heat, which will be an input into the SHI cascade simulations. The simulation trajectories will again be inputs into RMC modeling and fitted to neutron experimental data. 
+
+\item[Amorphous Ge/Si via High-Pressure] a-Ge and a-Si will be modeled using varying compression and nanoindentation MD simulations to replicate experimental preparation methods. Using RMCProfile, atomic configurations from MD simulations will be used to optimize and fit against neutron scattering experiments. These optimized structures can be fed back into the MD simulations to overcome barriers not accessible in the temporal limits of MD or for virtual experiments to help direct future material processing methods. ICE-MAN will be developed to reduce the barrier in the forward and backward direction of data transfer between the MD and RMCProfile modeling.
+
+\item[Oxygen Insertion in 1-D Cation Channel Materials]  RMCProfile will be used to clarify atomic structures of schafarzikite-like, 1-D cation channel materials before and after oxidation based on available neutron scattering data. The final structures can then be linked via electronic structure nudge elastic band calculations to determine minimum energy pathways for oxygen insertion into the lattice structure. ICE-MAN will again handle launching and data transfer workflow between the RMCProfile and quantum modeling calculations.
 
 
-\item[Amorphous Ge/Si via High-Pressure] a-Ge and a-Si will be modeled using the in-house structure relaxation program based on the WWW method. From these initial structures, varying high-pressure and indentation MD simulations can be carried out to match experimental preparation methods. Again, using RMC modeling, we can further optimize these structures to compare and fit against neutron scattering experiments. These optimized structures can be fed back into the MD simulations to overcome barriers not accessible in the temporal limits of MD or for virtual experiments to help direct future material processing methods. ICE-MAN will be developed to reduce the barrier in the forward and backward direction of data between the MD and RMC modeling.
-
-\item[Oxygen Insertion in 1-D Cation Channel Materials]  RMC modeling will be used to clarify atomic structures of schafarzikite-like, 1-D cation channel materials before and after oxidation based on availabl eneutron scattering data. The final structures can then be linked via electronic strucutre nudge elastic band calculations to determine minimum energy pathways for oxygen insertion into the lattice structure. ICE-MAN will again handle launching and data transfwer workflow between the RMC and quantum modeling calculations.
-
-\item[Irradiated Amorphous Silica by Swift Heavy Ions - Part 1] Swift heavy ion cascade simulations of amorphous silica will be carried out to produce atomistic configurations that can be directly compared and optimized to neutron scattering experiments via RMC modeling. This material will be first of many irradiated nuclear waste glass materials we will study via neutron scattering experiments in the upcoming year. ICE-MAN will be developed and optimized for the automated workflow between these modeling techniques: non-equilibrium MD simulations to RMC fitting of experimental data.
-
-\item[Irradiated Amorphous Silica by Swift Heavy Ions - Part 2] The swift heavy ion cascade simulations will also be simulated using the incorporation of realistic modeling of the electron-phonon coupling via two-temperature modeling with electronic temperature dependence on the electronic specific heat. This will require electronic structure calculations to determine the electronic specific heat with temperature curves, which will be an input into the SHI cascade simulations, which will give trajectories that are inputs into the RMC modeling and fitting to neutron experiments. Thus, this will be culminating project for ICE-MAN to prove success in its mission: Support the data analysis and interpretation needs of the neutron scattering community through atomistic modeling and simulation. \
 
 \end{description} 
 
@@ -137,7 +154,17 @@ We propose to complete the following work on on the XSEDE HPC and HTC resources 
 
 \section*{Justification for Service Units (SUs) Requested}
 
-Table \ref{SU_table} summarizes the jusitification for the requested resources to begin our project. The resources are 
+For the irradiated amorphous silica by swift heavy ion project using the thermal spike via instantaneous deposition of kinetic energy, we plan to carry out upwards of 100 cascade simulations. We will use 8 nodes (192 processors) per simulation with a 1 femtosecond timestep with a total simulation time of 1 nanosecond (equilibration and production combined). Thus, given that it will take 0.009 seconds per MD step, we will require 48,000 service units. The two-temperature model for the electron-phonon coupling simulations will also be upwards of ~100 cascade simulations. We will use 5 nodes (120 processors) per simulation with the same timestep and simulation time. With 0.017 seconds per MD step, we will require 57,000 service units. Also, 
+we request 50,000 service units for carrying out DFT calculations to determine electronic specific heat for input into the MD simulations. The Quantum ESPRESSO code is currently planned to be used for these calculations.  Thus, the total time will be 155,000 service units  for the silica project. However, we already have another proposed nuclear waste glass material that will be studied via neutron total scattering. This experiment could be completed as soon as April 2017. Thus, we request an additional 155,000 service units to also support this work, bringing the total requested service units to \textbf{310,000} for this part of the overall project. 
+
+For the amorphous silica under high-pressure, we request 40,000 service units to carry out the parallel structure optimization jobs for producing the initial amorphous silicon and germanium configuration. We also plan to carry out upwards of 100 simulations under different pressure conditions (compression and nanoindentation). We will use 8 nodes per simulation with a 1 femtosecond timestep with a total simulation time of 20 nanosecond (cycling of equilibration and production for continual pressure loading). Thus, given that it will take 0.009 seconds per MD step, we will require 600,000 service units for this part of the project. This will bring the total requested service units to \textbf{640,000} for this part of the overall project. 
+
+We request \textbf{100,000} service units for carrying out DFT calculations for the schafarzikite project. With poor scaling, we plan to use no more than 8 nodes per job. The Quantum ESPRESSO code is currently planned to be used for the schafarzikite calculations. These calculations will be shared between the VirtuES machine and Comet. 
+
+
+We request \textbf{50,000} service units for running RMCProfile optimization modeling on the Open Science Grid. These calculations will be launched as arrays of serial jobs.
+
+Table \ref{SU_table} summarizes the justification for the requested resources to begin our project.
 
 \begin{table}[H]
   \caption{Summary of requested service units for projects}\label{SU_table}
@@ -146,10 +173,16 @@ Table \ref{SU_table} summarizes the jusitification for the requested resources t
   	\toprule
   	Table & Project & Machine & Program & Service-Units & Storage (GB)\\
   	\midrule
-  	1 & Irradiated SiO2   & Comet/Oasis & LAMMPS & 300,000 & 500 \\
-  	2 & High-pressure a-Ge/a-Si & Comet/Oasis & LAMMPS & 300,000 & 500\\
-  	3 & Oxygen in FeSb2O4 & Comet/Oasis & QE & 100,000 & 500\\
-  	4 & RMC modeling   & OSG & RMCProfile & 25,000 & 100 \\
+  	1 & Irradiated SiO2   & Comet/Oasis & LAMMPS/QE & 310,00 & 500 \\
+  	2 & High-pressure a-Ge/a-Si & Comet/Oasis & LAMMPS & 640,000 & 500\\
+  	3 & Oxygen in FeSb2O4 & Comet/Oasis & QE & 100,000 & 100\\
+  	4 & RMC modeling   & OSG & RMCProfile & 50,000 & 100 \\
+  	\midrule
+  	  & Total   & Comet &   & 1,100,000 &  \\
+  	  &         & Oasis &   &           & 1,100 \\
+  	  &         & OSG &     & 50,000    &  100 \\
+  	\midrule
+  	  & Grand Total   &     &           & \textbf{1,100,000} & \textbf{1,200}  \\
   	\bottomrule
   \end{tabular}
   }
@@ -157,13 +190,13 @@ Table \ref{SU_table} summarizes the jusitification for the requested resources t
 
 
 \section*{Additional Comments}
-Currently, there is a shared comuter cluster available for computations for the group, the Virtual Experiments  in Spectroscopy  with neutrons (VirtuES) cluster. This machine was made available in 2015 as a funded Laboratory Directed Research and Development project for the VISION neurton vibraional spectrometer at the SNS. The machine consists of 2500+ cores with nodes consisting of two 16-core Intel Xeon E5-2698 v3 running at 2.30GHz. VirtuES is dedicated to the VISION beamline, the first SNS instrument that has computer modeling as integral part of the neutron data analysis and interpretation of the spectra. This cluster mainly used for running DFT calculations to help in data analysis and interpretation of User's neutron data. Our current proposed projects and ICE-MAN development comes secondary to Users needs.
+VirtuES is available but is dedicated to VISION Users at the SNS. The machine consists of 50 nodes with each node consisting of two 16-core Intel Xeon E5-2698 v3 running at 2.30GHz.  
 
-There is also an open-research cluster, called Analysis, available at the SNS for Users to analyze and visualize their data from neutron experiments. This cluster is mainly for accessing and reducing User's data and not suited for HPC applications. MTM has currently just finished using a initial startup allocation for 100,000 total SUs from a previous project on the two XSEDE HPC resources at the San Diegoe Supercomputer Center: Comet and Gordon (50,000 SUs each)
+MTM has currently just finished using a initial startup allocation for 100,000 total SUs from a previous project on the two XSEDE HPC resources at the San Diego Supercomputer Center: Comet and Gordon (50,000 SUs each)
 
 
-\bibliography{draft}
-\bibliographystyle{jponew}
+\bibliography{proposal}
+\bibliographystyle{unsrt}
 
 
 \end{document}
